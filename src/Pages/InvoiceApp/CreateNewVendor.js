@@ -16,15 +16,24 @@ const AddNewVendor = (props) => {
      />
    </FormGroup>
    <FormGroup>
-     <Label for="Manager Name">Manger Name</Label>
+     <Label for="Address">Address</Label>
      <Input
-       type="ManagerName"
-       name="ManagerName"
-       id="ManagerName"
-       placeholder="Manager Name"
+       type="Address"
+       name="Address"
+       id="Address"
+       placeholder="Address"
      />
    </FormGroup>
-   <Button onClick={props.addButton}>Add</Button>
+   <FormGroup>
+     <Label for="Phone Number">Phone Number</Label>
+     <Input
+       type="phonenumber"
+       name="phonenumber"
+       id="PhoneNumber"
+       placeholder="Phone Number"
+     />
+   </FormGroup>
+   <Button onClick={props.addInsertVendor}>Add</Button>
  </Form>
    )
 }

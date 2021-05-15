@@ -1,10 +1,9 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-
-import PersonalWebSite from '../src/Pages/PerosnalWebSite';
-import InvoiceApp from '../src/Pages/InvoiceApp/InvoiceApp'
-
+import InvoiceApp from "../src/Pages/InvoiceApp/InvoiceApp";
+import AppointmentApp from "../src/Pages/AppointmentApp/AppointmentApp"
 
 //css
 import "./App.css";
@@ -12,28 +11,23 @@ import "./App.css";
 const App = () => {
   return (
     <Router>
-      <div className="dropdown">
-        <button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Component/Pages
-        </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <Link className="dropdown-item" to="/InvoiceApp">
+      <button>
+        <Link className="dropdown-item" to="/InvoiceApp">
           InvoiceApp
-          </Link>
-          
-        </div>
-      </div>
+        </Link>
+      </button>
+      <button>
+        <Link className="dropdown-item" to="/AppointmentApp">
+          Appointment App
+        </Link>
+      </button>
 
       <Switch>
         <Route exact path="/InvoiceApp">
           <InvoiceApp />
+        </Route>
+        <Route exact path="/AppointmentApp">
+          <AppointmentApp />
         </Route>
       </Switch>
     </Router>

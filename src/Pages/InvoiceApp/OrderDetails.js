@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import OrderDetailsDictionary from "./OrderDetailsDictionary";
 import "../InvoiceApp/OrderDetails.css";
-import { Table } from "reactstrap";
+import { Table, Button } from "reactstrap";
 
 class OrderDetails extends React.Component {
   mapping = {
@@ -22,18 +22,21 @@ class OrderDetails extends React.Component {
     const total = (document.getElementById("total-value" + ID).value =
       getPerSizeAmount * getQuantity);
 
-     //get Grand subTotal 
+    //get Grand subTotal
     let totalFields = document.querySelectorAll(".total-value");
     let grandTotal = 0;
     for (let i = 0; i < totalFields.length; i++) {
       grandTotal += Number(totalFields[i].value);
     }
-   
+
     //assign value to grandTotal/ subTotal
-    document.getElementById('productSubTotal').value = grandTotal
-
-
+    document.getElementById("productSubTotal").value = grandTotal;
   };
+
+  //confirm Button
+  confirmButton = () => {
+    alert('confirm Button clicked!!')
+  }
 
   render() {
     return (
@@ -72,8 +75,8 @@ class OrderDetails extends React.Component {
           ))}
           <tr className="subTotal">
             <td>
-              Product Subtotal{" "}
-              <input id="productSubTotal"></input>
+              Product Subtotal Nrs <input id="productSubTotal"></input>
+              <Button className="confirmButton" onClick={this.confirmButton}>Order Confirm</Button>
             </td>
           </tr>
         </tbody>

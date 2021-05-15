@@ -13,7 +13,10 @@ const PopUpModal = (props) => {
   const checkAndPopUP = () => {
     props.searchValue();
     toggle();
+  
   };
+
+ 
 
   //send value to parnent component
   const sendValueParent = (e) => {
@@ -22,21 +25,22 @@ const PopUpModal = (props) => {
     toggle();
   };
 
+
   return (
     <div>
-      <Button onClick={checkAndPopUP}>{props.buttonText}</Button>
+      <Button onClick={checkAndPopUP} id= {props.buttonId}>{props.buttonText}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>{props.modalTitle}</ModalHeader>
         <ModalBody>{props.modalBodyText} </ModalBody>
         <ModalFooter>
           <Button
             color="primary"
-            value={!props.checkforValue ? "Yes" : "Ok"}
+            value={!props.userExist ? "Yes" : "Ok"}
             onClick={sendValueParent}
           >
-            {!props.checkforValue ? "Yes" : "Ok"}
+            {!props.userExist ? "Yes" : "Ok"}
           </Button>
-          {!props.checkforValue && (
+          {!props.userExist && (
             <Button color="secondary" onClick={toggle}>
               No
             </Button>
